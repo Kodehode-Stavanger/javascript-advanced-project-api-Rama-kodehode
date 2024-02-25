@@ -4,6 +4,7 @@ const humidity = document.getElementById("humidity");
 const wind = document.getElementById("wind");
 const showLatitude = document.getElementById("latitude");
 const showLongtitude = document.getElementById("longtitude");
+const elevation = document.getElementById("elevation");
 const uv = document.getElementById("uv");
 const airQuality = document.getElementById("airQuality");
 const hour = document.getElementById("hour");
@@ -45,8 +46,8 @@ function renderSite(dataGeo, dataWeather) {
   degrees.textContent = `${dataWeather.current.temperature_2m} DEGREES`;
   humidity.textContent = `HUMIDITY ${dataWeather.current.relative_humidity_2m}%`;
   wind.textContent = `WIND ${dataWeather.current.wind_speed_10m} ${dataWeather.current_units.wind_speed_10m}`;
-  showLatitude.textContent = `LATITUDE ${dataWeather.latitude}`;
-  showLongtitude.textContent = `LONGTITUDE ${dataWeather.longitude}`;
+  // showLatitude.textContent = `LATITUDE ${dataWeather.latitude}`;
+  // showLongtitude.textContent = `LONGTITUDE ${dataWeather.longitude}`;
 
   const population = document.getElementById("population");
   const timeZone = document.getElementById("timezone");
@@ -57,6 +58,8 @@ function renderSite(dataGeo, dataWeather) {
     country.textContent = `${dataGeo.results[0].name}`.toUpperCase();
     timeZone.textContent =
       `CAPITAL*${dataGeo.results[0].timezone}`.toUpperCase();
+    elevation.textContent =
+      `ELEVATION ${dataGeo.results[0].elevation}`.toUpperCase();
   }
   console.log(dataGeo);
 }
